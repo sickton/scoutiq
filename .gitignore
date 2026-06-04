@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+*.ods
+
+# Node
+node_modules/
+frontend/build/
+frontend/dist/
+
+# DB
+*.sqlite
+
+#Planning data
+sessions/
