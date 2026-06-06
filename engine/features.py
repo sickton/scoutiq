@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 
 FEATURE_COLS = [
     "goals_per90", "assists_per90", "shots_per90", "TklW", "Int", "Min_x", "Age",
+    "PPM", "onGA",
 ]
 
 def build_feature_matrix(df):
@@ -15,8 +16,9 @@ def build_feature_matrix(df):
     df = df[df["Min_x"] >= 90].copy()
     df = df.dropna(subset=FEATURE_COLS)
     names = df["Player"].reset_index(drop=True)
+    positions = df["Pos"].reset_index(drop=True)
     feature_subset = df[FEATURE_COLS].reset_index(drop=True)
-    return feature_subset, names
+    return feature_subset, names, positions
 
 def scale_features(X):
     scaler = StandardScaler()
